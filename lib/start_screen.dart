@@ -20,17 +20,18 @@ class _StartScreenState extends State<StartScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            'assets/images/quiz-logo.png',
-            width: 200,
+          Opacity(
+            opacity: 0.6,
+            child: Image.asset('assets/images/quiz-logo.png',
+                width: 200, color: const Color.fromARGB(150, 255, 255, 255)),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Text('Learn Flutter the fun way!'),
-          ),
-          ElevatedButton(
+          const SizedBox(height: 40),
+          const Text('Learn Flutter the fun way!'),
+          const SizedBox(height: 20),
+          ElevatedButton.icon(
             onPressed: _handleClick,
-            child: const Text('Start Quiz'),
+            label: const Text('Start Quiz'),
+            icon: const Icon(Icons.arrow_circle_right_outlined),
           )
         ],
       ),
