@@ -8,14 +8,17 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 33, 18, 99),
-          foregroundColor: Colors.white),
-      child: Text(
-        answerText,
-        style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+    return Container(
+      margin: const EdgeInsets.only(top: 8, left: 36, right: 36),
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 33, 18, 99),
+            foregroundColor: Colors.white),
+        child: Text(
+          answerText,
+          style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+        ),
       ),
     );
   }

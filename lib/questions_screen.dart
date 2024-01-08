@@ -20,16 +20,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             currentQuestion.text,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
           //map takes a function as a Value & creates a new list of elements
           // spreding Values '...' is adding them as individual elements to the column childrens.
-          ...currentQuestion.answers.map((answer) {
+          ...currentQuestion.getShuffledAnswer().map((answer) {
             return AnswerButton(answerText: answer, onTap: () {});
           }),
         ],
