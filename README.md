@@ -1,16 +1,34 @@
-# quiz_app
+# Quiz App
 
-A new Flutter project.
+## Overview
+- This Flutter project, the *Quiz App*, is designed to facilitate learning foundational Flutter concepts. The application aims to create a quiz experience by presenting questions and allowing users to answer them.
+- **Course:** [Flutter & Dart - The Complete Guide [2024 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/)
 
-## Getting Started
+## Day One Learnings
+### Widget Space Control
+Use `SizedBox(height: <number>)` to create space between elements.
 
-This project is a starting point for a Flutter application.
+### Icons
+Utilize `Icons.<icon>` with the `Icon()` function. Get a list and preview of available Flutter icons by typing `Icons.`.
 
-A few resources to get you started if this is your first Flutter project:
+### Opacity
+Wrap widgets with `Opacity` for transparency or modify image color with opacity.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### State Management
+- Introduced Stateful Widgets and their lifecycle methods: `initState()`, `build()`, and `dispose()`.
+- Demonstrated conditional rendering and lifting state up with `initState()` and changing screens.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Flutter Widget Lifecycle
+- Understood the essential lifecycle methods for stateful widgets: `initState()`, `build()`, and `dispose()`.
+
+### Conditional List Building
+Used `if` inside lists to conditionally add items and specified `else` cases. Employed ternary expressions for list item addition based on conditions.
+
+### Widening Widgets
+Set width to `double.infinity` for widgets to expand fully.
+
+### Dynamic List Operations
+- Accessed list values dynamically.
+- Utilized spread values and mapping to populate widgets from a list dynamically.
+
+
