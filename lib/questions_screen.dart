@@ -2,21 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/models/quiz_questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onSelectAnswer});
+
+//Function that returns nothing but takes one String as an argument
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion(String selectedAnswer) {
+    currentQuestionIndex++;
+    widget.onSelectAnswer(selectedAnswer);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
-      // Be as wide as possible
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -24,14 +34,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         children: [
           Text(
             currentQuestion.text,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            style: GoogleFonts.poppins(fontSize: 16),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
-          //map takes a function as a Value & creates a new list of elements
-          // spreding Values '...' is adding them as individual elements to the column childrens.
           ...currentQuestion.getShuffledAnswer().map((answer) {
-            return AnswerButton(answerText: answer, onTap: () {});
+            return AnswerButton(
+              answerText: answer,
+              onTap: () {
+                answerQuestion(answer);
+              },
+            );
           }),
         ],
       ),
