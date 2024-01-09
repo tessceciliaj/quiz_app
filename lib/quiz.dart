@@ -32,7 +32,6 @@ class _QuizState extends State<Quiz> {
 // Then Reset selected answers list and go back to start screen
     if (selectedAnswer.length == questions.length) {
       setState(() {
-        selectedAnswer = [];
         activeScreen = 'result-screen';
       });
     }
@@ -45,7 +44,9 @@ class _QuizState extends State<Quiz> {
         : QuestionsScreen(onSelectAnswer: chooseAnswer);
 
     if (activeScreen == 'result-screen') {
-      screenWidget = const ResultScreen();
+      screenWidget = ResultScreen(
+        chosenAnswers: selectedAnswer,
+      );
     }
 
     return MaterialApp(
