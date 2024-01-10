@@ -4,7 +4,7 @@
 - This Flutter project, the *Quiz App*, is designed to facilitate learning foundational Flutter concepts. The application aims to create a quiz experience by presenting questions and allowing users to answer them.
 - **Course:** [Flutter & Dart - The Complete Guide [2024 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/)
 
-## Day One Learnings
+## Day One
 ### Widget Space Control
 Use `SizedBox(height: <number>)` to create space between elements.
 
@@ -31,7 +31,7 @@ Set width to `double.infinity` for widgets to expand fully.
 - Accessed list values dynamically.
 - Utilized spread values and mapping to populate widgets from a list dynamically.
 
-# Day 2: Quiz App
+# Day two
 
 ## New Features & Concepts
 
@@ -81,7 +81,8 @@ final List<String> selectedAnswer = [];
 
 void chooseAnswer(String answer) {
     selectedAnswer.add(answer);
-}
+} 
+
 
 // for ... in Loop in Lists
 final numbers = [5, 6];
@@ -94,6 +95,56 @@ final myList = [
 
 //Map Filtering and String Conversion
 Text(((data['question_index'] as int) + 1).toString())
+```
 
+# Day 3: Quiz App
 
+## Additional Concepts
+
+### Color Change with Ternary Expression
+- Changed color based on the correct answer using a ternary expression within a `Container()` widget.
+
+### Private Widgets and Methods
+- Employed leading underscores `_` to indicate private widgets and methods.
+
+### `get` Method Usage
+- Utilized the `get` method as a property with the ability to execute like a method.
+
+### Completion and Reflection
+- Marked completion of the Quiz App project, acknowledging the extended duration for detailed note-taking, replays, and research.
+
+## Code Samples
+
+Here are some snippets from Day 3 demonstrating key functionalities:
+
+```dart
+// Color Change with Ternary Expression
+return Container(
+      width: 30,
+      height: 30,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: isCorrectAnswer
+            ? const Color.fromARGB(255, 133, 255, 149)
+            : const Color.fromARGB(255, 255, 159, 193),
+      ),
+    );
+
+// Private Widgets and Methods
+List<Map<String, Object>> get summaryData {
+    final List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < chosenAnswers.length; i++) {
+      // Dart syntax for creating a map
+      // Save these values i a map
+      summary.add({
+        'question_index': i,
+        'question': questions[i].text,
+        'correct_answer': questions[i].answers[0],
+        'user_answer': chosenAnswers[i],
+      });
+    }
+
+    return summary;
+  }
 
